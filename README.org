@@ -1,0 +1,4 @@
+* Timelapse
+A simple PHP script that takes screenshots in regular time intervals.
+
+Inspired by Ludum Dare, [[http://code.google.com/p/chronolapse/][ChronoLapse]] and[[http://www.ludumdare.com/compo/2010/04/23/linux-desktop-time-lapse-creation-script/][Linux Desktop Time-lapse Creation Script by winferno]].
