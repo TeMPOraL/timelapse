@@ -11,7 +11,7 @@ if($argv[1] == "compile")
     `ffmpeg -shortest -qscale 3 -ab 192k -r 10 -i %04d.jpg video.mp4`;
 }
 
-if($argv[1] = "go")
+if($argv[1] == "go")
 {
     $interval = isset($argv[2]) ? $argv[2] : 10;
     $frame = 0;
