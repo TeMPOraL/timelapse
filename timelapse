@@ -18,8 +18,9 @@ if($argc < 2)
 if($argv[1] == "compile")
 {
 //    `ffmpeg -shortest -qscale 3 -ab 192k -r 10 -i %04d.jpg -i music.mp3 video.mp4`; // <-- music version
+    $framerate = isset($argv[2]) ? $argv[2] : 10;
     //TODO add framerate selection
-    `ffmpeg -shortest -qscale 3 -ab 192k -r 10 -i %04d.jpg video.mp4`;
+    `ffmpeg -shortest -qscale 3 -ab 192k -r $framerate -i %04d.jpg video.mp4`;
 }
 
 //----------------------------------------------------------------
@@ -43,7 +44,9 @@ else if($argv[1] == "start")
         echo "Beginning frame $frame\n";
         `scrot screen.png`;
         $filename = sprintf("%04d.jpg", $frame);
-        `convert -quality 100 -resize 800x screen.png $filename`;
+        $date = '"' . `date` . '"';
+        // TODO find a better font... ;)
+        `convert -quality 100 -background black -splice 0x64 -pointsize 48 -fill red -annotate +24+48 $date -resize 800x screen.png $filename`;
         echo "Finished frame $frame\n";
         `sleep $interval`;
         ++$frame;
