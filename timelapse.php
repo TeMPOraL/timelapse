@@ -1,20 +1,32 @@
 <?
+// FIXME licencing? ;)
+
+// NOTE see readme for detailed description
+
+// TODO use some better way to parse options?
+// TODO try to get rid of scrot (they say, that ImageMagick has a sceen capture utility)
 
 if($argc < 2)
 {
-    die("'compile' to compile, 'start [screenshot interval in seconds]' to start. ;)..\n");
+    die("'compile' to compile, 'start [screenshot interval in seconds] [frame offset]' to start. ;)..\n");
 }
 
+//----------------------------------------------------------------
+// compile
+//----------------------------------------------------------------
 if($argv[1] == "compile")
 {
 //    `ffmpeg -shortest -qscale 3 -ab 192k -r 10 -i %04d.jpg -i music.mp3 video.mp4`; // <-- music version
     `ffmpeg -shortest -qscale 3 -ab 192k -r 10 -i %04d.jpg video.mp4`;
 }
 
+//----------------------------------------------------------------
+// start
+//----------------------------------------------------------------
 if($argv[1] == "start")
 {
-    $interval = isset($argv[2]) ? $argv[2] : 10;
-    $frame = 0;
+    $interval = isset($argv[2]) ? $argv[2] : 10; //$argv[2] - frame spacing (not counting the time used to save and process the screenshot)
+    $frame = isset($argv[3]) ? $argv[3] : 0; //$argv[3] - frame offset - specify to continue recording from given frame
     
     while(true)
     {
