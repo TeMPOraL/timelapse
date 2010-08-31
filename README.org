@@ -6,10 +6,18 @@ A simple PHP script that takes screenshots in regular time intervals.
 Inspired by Ludum Dare, [[http://code.google.com/p/chronolapse/][ChronoLapse]] and [[http://www.ludumdare.com/compo/2010/04/23/linux-desktop-time-lapse-creation-script/][Linux Desktop Time-lapse Creation Script by winferno]].
 
 ** Usage
- - php timelapse start [interval] - starts timelapse script with given interval in seconds (default: 10)
- - php timelapse compile - compiles all screenshots in current directory to a movie (not verified yet ;))
+ - ./timelapse start [interval] [offset] - starts timelapse script with given interval in seconds (default: 10).
+   'offset' parameter sets the initial frame name. By specifying it, you can continue a recording that was previously
+   interrupted.
+ - ./timelapse compile - compiles all screenshots in current directory to a movie. It starts from 0000.jpg.
+ - ./timelapse clean - removes all .jpg files from current directory
 
 ** Required tools
+ - php
  - scrot
  - ImageMagick
  - ffmpeg
+
+** Troubleshooting
+If for some reason typing ./timelapse [args] fails to execute the script, try: php timelapse [args].
+
