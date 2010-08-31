@@ -10,7 +10,7 @@ Inspired by Ludum Dare, [[http://code.google.com/p/chronolapse/][ChronoLapse]] a
  - ./timelapse start [interval] [offset] - starts timelapse script with given interval in seconds (default: 10).
    'offset' parameter sets the initial frame name. By specifying it, you can continue a recording that was previously
    interrupted.
- - ./timelapse compile - compiles all screenshots in current directory to a movie. It starts from 0000.jpg.
+ - ./timelapse compile [framerate] - compiles all screenshots in current directory to a movie. It starts from 0000.jpg. If not specified, framerate defaults to 10 frames per second.
  - ./timelapse clean - removes all .jpg files from current directory
 
 ** Required tools
