@@ -46,7 +46,7 @@ else if($argv[1] == "start")
         $filename = sprintf("%04d.jpg", $frame);
         $date = '"' . `date` . '"';
         // TODO find a better font... ;)
-        `convert -quality 100 -background black -splice 0x64 -pointsize 48 -fill red -annotate +24+48 $date -resize 800x screen.png $filename`;
+        `convert -quality 100 -background black -splice 0x64 -pointsize 48 -fill red -annotate +24+48 $date -resize 1280x screen.png $filename`;
         echo "Finished frame $frame\n";
         `sleep $interval`;
         ++$frame;
